@@ -1,38 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 18:27:42 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/12/21 16:47:10 by tcampbel         ###   ########.fr       */
+/*   Created: 2023/10/25 15:04:07 by tcampbel          #+#    #+#             */
+/*   Updated: 2023/11/15 14:47:12 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int ft_perror(int argc, char *argv[])
+void	*ft_bzero(void *s, size_t n)
 {
-	int	i;
+	unsigned char	*str;
 
-	i = 0;
-	if (argc < 3)
-		return (0);
-
-	while (argv[i])
+	str = s;
+	while (n > 0)
 	{
-		if (ft_atoi(*argv) == 0 || ft_atoi(*argv) == -1) 
-			return (0);
-		i++;
+		*str = '\0';
+		n--;
+		str++;
 	}
-	return (1);
-}
-
-int	main(int argc, char *argv[])
-{
-	if (!ft_perror(argc, *argv[]))
-		ft_printf("Error\n");
-
-	return(0);
+	return (s);
 }

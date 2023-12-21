@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 18:27:42 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/12/21 16:47:10 by tcampbel         ###   ########.fr       */
+/*   Created: 2023/11/02 13:48:04 by tcampbel          #+#    #+#             */
+/*   Updated: 2023/11/09 11:40:40 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int ft_perror(int argc, char *argv[])
+void	ft_putnbr_fd(int nb, int fd)
 {
-	int	i;
-
-	i = 0;
-	if (argc < 3)
-		return (0);
-
-	while (argv[i])
+	if (nb == -2147483648)
 	{
-		if (ft_atoi(*argv) == 0 || ft_atoi(*argv) == -1) 
-			return (0);
-		i++;
+		ft_putstr_fd("-2147483648", fd);
 	}
-	return (1);
-}
-
-int	main(int argc, char *argv[])
-{
-	if (!ft_perror(argc, *argv[]))
-		ft_printf("Error\n");
-
-	return(0);
+	else if (nb < 0)
+	{
+		ft_putchar_fd('-', fd);
+		ft_putnbr_fd(-nb, fd);
+	}
+	else if (nb >= 10)
+	{
+		ft_putnbr_fd(nb / 10, fd);
+		ft_putchar_fd((nb % 10) + 48, fd);
+	}
+	else
+		ft_putchar_fd(nb + 48, fd);
 }

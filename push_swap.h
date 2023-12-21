@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:59:13 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/12/19 17:02:02 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/12/21 16:46:05 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 # define PUSH_SWAP_H
 
 # include <stdlib.h>
+# include "libft/includes/libft.h"
 
+int	ft_perror(int argc, char *argv[]);
 
-
-
+#endif

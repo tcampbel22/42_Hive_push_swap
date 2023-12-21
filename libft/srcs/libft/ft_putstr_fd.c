@@ -1,38 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 18:27:42 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/12/21 16:47:10 by tcampbel         ###   ########.fr       */
+/*   Created: 2023/11/02 13:27:14 by tcampbel          #+#    #+#             */
+/*   Updated: 2023/11/02 13:39:13 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int ft_perror(int argc, char *argv[])
+void	ft_putstr_fd(char *s, int fd)
 {
-	int	i;
-
-	i = 0;
-	if (argc < 3)
-		return (0);
-
-	while (argv[i])
+	while (*s)
 	{
-		if (ft_atoi(*argv) == 0 || ft_atoi(*argv) == -1) 
-			return (0);
-		i++;
+		write(fd, s, 1);
+		s++;
 	}
-	return (1);
-}
-
-int	main(int argc, char *argv[])
-{
-	if (!ft_perror(argc, *argv[]))
-		ft_printf("Error\n");
-
-	return(0);
 }

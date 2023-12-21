@@ -1,38 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 18:27:42 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/12/21 16:47:10 by tcampbel         ###   ########.fr       */
+/*   Created: 2023/11/03 14:15:09 by tcampbel          #+#    #+#             */
+/*   Updated: 2023/11/15 17:39:42 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int ft_perror(int argc, char *argv[])
+char	*ft_strjoin(char const *str1, char const *str2)
 {
-	int	i;
+	size_t	i;
+	size_t	j;
+	char	*str3;
 
 	i = 0;
-	if (argc < 3)
-		return (0);
-
-	while (argv[i])
+	j = 0;
+	str3 = (char *)malloc((ft_strlen(str1) + ft_strlen(str2)) + 1);
+	if (!str3)
+		return (NULL);
+	while (str1[i])
 	{
-		if (ft_atoi(*argv) == 0 || ft_atoi(*argv) == -1) 
-			return (0);
+		str3[i] = str1[i];
 		i++;
 	}
-	return (1);
-}
-
-int	main(int argc, char *argv[])
-{
-	if (!ft_perror(argc, *argv[]))
-		ft_printf("Error\n");
-
-	return(0);
+	while (str2[j])
+	{
+		str3[i] = str2[j];
+		j++;
+		i++;
+	}
+	str3[i] = '\0';
+	return (str3);
 }

@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 18:27:42 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/12/21 16:47:10 by tcampbel         ###   ########.fr       */
+/*   Created: 2023/12/01 11:51:36 by tcampbel          #+#    #+#             */
+/*   Updated: 2023/12/21 11:54:17 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-int ft_perror(int argc, char *argv[])
-{
-	int	i;
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
-	i = 0;
-	if (argc < 3)
-		return (0);
+# include <stdlib.h>
+# include <unistd.h>
+# include "libft.h"
 
-	while (argv[i])
-	{
-		if (ft_atoi(*argv) == 0 || ft_atoi(*argv) == -1) 
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-int	main(int argc, char *argv[])
-{
-	if (!ft_perror(argc, *argv[]))
-		ft_printf("Error\n");
-
-	return(0);
-}
+char	*get_next_line(int fd);
+char	*ft_free(char **str);
+char	*read_line(int fd, char *storage);
+char	*find_end(char *storage);
+char	*find_line(char *storage);
+char	*ft_strjoin_gnl(char *str1, char *str2);
+#endif

@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 18:27:42 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/12/21 16:47:10 by tcampbel         ###   ########.fr       */
+/*   Created: 2023/11/02 14:54:50 by tcampbel          #+#    #+#             */
+/*   Updated: 2023/11/16 10:41:39 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int ft_perror(int argc, char *argv[])
+char	*ft_substr(char const *str, unsigned int start, size_t len)
 {
-	int	i;
+	char	*sub;
+	size_t	i;
 
 	i = 0;
-	if (argc < 3)
-		return (0);
-
-	while (argv[i])
+	if ((len + start) > ft_strlen(str))
+		len = ft_strlen(str) - start;
+	if (!str || ft_strlen(str) <= start || len == 0)
+		return (ft_strdup(""));
+	sub = (char *)malloc((len + 1));
+	if (!sub)
+		return (NULL);
+	while (str[start + i] && len - i > 0)
 	{
-		if (ft_atoi(*argv) == 0 || ft_atoi(*argv) == -1) 
-			return (0);
+		sub[i] = str[i + start];
 		i++;
 	}
-	return (1);
-}
-
-int	main(int argc, char *argv[])
-{
-	if (!ft_perror(argc, *argv[]))
-		ft_printf("Error\n");
-
-	return(0);
+	sub[i] = '\0';
+	return (sub);
 }

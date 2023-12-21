@@ -1,38 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 18:27:42 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/12/21 16:47:10 by tcampbel         ###   ########.fr       */
+/*   Created: 2023/10/27 17:42:43 by tcampbel          #+#    #+#             */
+/*   Updated: 2023/11/15 17:16:47 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int ft_perror(int argc, char *argv[])
+char	*ft_strnstr(const char *hay, const char *needle, size_t n)
 {
-	int	i;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
-	if (argc < 3)
+	j = 0;
+	if (needle[j] == '\0')
+		return ((char *) hay);
+	if (n == 0)
 		return (0);
-
-	while (argv[i])
+	while (hay[i] && n)
 	{
-		if (ft_atoi(*argv) == 0 || ft_atoi(*argv) == -1) 
-			return (0);
+		while (hay[i + j] == needle[j] && (n - j) > 0)
+		{
+			j++;
+			if (needle[j] == '\0')
+				return ((char *) hay + i);
+		}
 		i++;
+		j = 0;
+		n--;
 	}
-	return (1);
-}
-
-int	main(int argc, char *argv[])
-{
-	if (!ft_perror(argc, *argv[]))
-		ft_printf("Error\n");
-
-	return(0);
+	return (0);
 }

@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 18:27:42 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/12/21 16:47:10 by tcampbel         ###   ########.fr       */
+/*   Created: 2023/10/25 17:22:33 by tcampbel          #+#    #+#             */
+/*   Updated: 2023/11/15 15:04:47 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int ft_perror(int argc, char *argv[])
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int	i;
+	char		*d;
+	const char	*s;
 
-	i = 0;
-	if (argc < 3)
+	d = dst;
+	s = src;
+	if (!dst && !src)
 		return (0);
-
-	while (argv[i])
+	if (d > s)
 	{
-		if (ft_atoi(*argv) == 0 || ft_atoi(*argv) == -1) 
-			return (0);
-		i++;
+		while (len > 0)
+		{
+			d[len - 1] = s[len - 1];
+			len--;
+		}
 	}
-	return (1);
-}
-
-int	main(int argc, char *argv[])
-{
-	if (!ft_perror(argc, *argv[]))
-		ft_printf("Error\n");
-
-	return(0);
+	else if (d <= s)
+	{
+		while (len > 0)
+		{
+			*d++ = *s++;
+			len--;
+		}
+	}
+	return (dst);
 }

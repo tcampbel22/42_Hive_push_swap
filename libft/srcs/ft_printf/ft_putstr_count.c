@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_count.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 18:27:42 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/12/21 16:47:10 by tcampbel         ###   ########.fr       */
+/*   Created: 2023/11/17 16:09:32 by tcampbel          #+#    #+#             */
+/*   Updated: 2023/11/22 11:25:45 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf.h"
 
-int ft_perror(int argc, char *argv[])
+int	ft_putstr_count(char *str, int *ptr)
 {
-	int	i;
+	int	count;
 
-	i = 0;
-	if (argc < 3)
-		return (0);
-
-	while (argv[i])
+	count = 0;
+	if (str == NULL)
+		return (ft_putstr_count("(null)", ptr));
+	while (*str)
 	{
-		if (ft_atoi(*argv) == 0 || ft_atoi(*argv) == -1) 
-			return (0);
-		i++;
+		count += ft_putchar_count(*str, ptr);
+		str++;
 	}
-	return (1);
-}
-
-int	main(int argc, char *argv[])
-{
-	if (!ft_perror(argc, *argv[]))
-		ft_printf("Error\n");
-
-	return(0);
+	return (count);
 }

@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 18:27:42 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/12/21 16:47:10 by tcampbel         ###   ########.fr       */
+/*   Created: 2023/10/30 14:40:03 by tcampbel          #+#    #+#             */
+/*   Updated: 2023/11/16 14:39:51 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int ft_perror(int argc, char *argv[])
+void	*ft_calloc(size_t count, size_t size)
 {
-	int	i;
+	void	*ptr;
+	size_t	max;
 
-	i = 0;
-	if (argc < 3)
-		return (0);
-
-	while (argv[i])
-	{
-		if (ft_atoi(*argv) == 0 || ft_atoi(*argv) == -1) 
+	max = 0 - 1;
+	if (count != 0 && size != 0)
+		if (max / count < size)
 			return (0);
-		i++;
-	}
-	return (1);
-}
-
-int	main(int argc, char *argv[])
-{
-	if (!ft_perror(argc, *argv[]))
-		ft_printf("Error\n");
-
-	return(0);
+	ptr = malloc(count * size);
+	if (ptr == 0)
+		return (0);
+	ft_bzero(ptr, count * size);
+	return (ptr);
 }

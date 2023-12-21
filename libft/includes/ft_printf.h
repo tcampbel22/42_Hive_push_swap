@@ -1,38 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 18:27:42 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/12/21 16:47:10 by tcampbel         ###   ########.fr       */
+/*   Created: 2023/11/17 10:34:42 by tcampbel          #+#    #+#             */
+/*   Updated: 2023/11/22 17:11:55 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
+# include <stdarg.h>
+# include <unistd.h>
 
-int ft_perror(int argc, char *argv[])
-{
-	int	i;
-
-	i = 0;
-	if (argc < 3)
-		return (0);
-
-	while (argv[i])
-	{
-		if (ft_atoi(*argv) == 0 || ft_atoi(*argv) == -1) 
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-int	main(int argc, char *argv[])
-{
-	if (!ft_perror(argc, *argv[]))
-		ft_printf("Error\n");
-
-	return(0);
-}
+int	ft_printf(const char *str, ...);
+int	str_handler(char flag, va_list ap, int *ptr);
+int	ft_putchar_count(char c, int *ptr);
+int	ft_putstr_count(char *s, int *ptr);
+int	ft_putnbr_count(long n, int *ptr);
+int	ft_puthex_count(unsigned long nb, char flag, int *ptr);
+#endif

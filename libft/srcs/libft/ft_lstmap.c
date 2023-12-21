@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 18:27:42 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/12/21 16:47:10 by tcampbel         ###   ########.fr       */
+/*   Created: 2023/11/14 18:41:07 by tcampbel          #+#    #+#             */
+/*   Updated: 2023/11/16 10:43:48 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int ft_perror(int argc, char *argv[])
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	int	i;
+	t_list	*lst1;
+	t_list	*new;
+	t_list	*temp;
 
-	i = 0;
-	if (argc < 3)
-		return (0);
-
-	while (argv[i])
+	lst1 = NULL;
+	while (lst)
 	{
-		if (ft_atoi(*argv) == 0 || ft_atoi(*argv) == -1) 
-			return (0);
-		i++;
+		if (f)
+		{
+			temp = (f)(lst->content);
+			new = ft_lstnew(temp);
+		}
+		else
+			return (NULL);
+		if (!new)
+		{
+			(del)(temp);
+			ft_lstclear(&lst1, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&lst1, new);
+		lst = lst->next;
 	}
-	return (1);
-}
-
-int	main(int argc, char *argv[])
-{
-	if (!ft_perror(argc, *argv[]))
-		ft_printf("Error\n");
-
-	return(0);
+	return (lst1);
 }
