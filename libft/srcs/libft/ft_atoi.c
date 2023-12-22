@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:18:41 by tcampbel          #+#    #+#             */
-/*   Updated: 2023/12/21 11:41:35 by tcampbel         ###   ########.fr       */
+/*   Updated: 2023/12/22 14:49:38 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ static int	convert_char(const char *str, int neg)
 	return (num);
 }
 
-int	ft_atoi(const char *str)
+long	ft_atoi_long(const char *str)
 {
-	int	neg;
-	int	num;
+	long	neg;
+	long	num;
 
 	neg = 1;
 	num = 0;

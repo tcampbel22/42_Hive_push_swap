@@ -4,7 +4,7 @@ LIBFTNAME = libft.a
 
 #---------------------------------Flags---------------------------------------#
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -g -Wall -Wextra -Werror
 RM = rm -f
 
 #---------------------------------Directories---------------------------------#
@@ -27,7 +27,7 @@ clean:
 	$(RM) $(OBJS) 
 	@make clean -C libft/
 
-fclean:
+fclean: clean
 	$(RM) $(NAME)
 	@make fclean -C libft
 

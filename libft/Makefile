@@ -15,7 +15,7 @@ GNL_DIR = srcs/get_next_line
 #---------------------------------Source Files--------------------------------#
 
 SRC_FLS = 	$(LIBFT_FLS)\
-			$(FT_PRINT_FLS)\
+			$(FT_PRINTF_FLS)\
 			$(GNL_FLS)
 
 LIBFT_FLS = $(LIBFT_DIR)/ft_atoi.c $(LIBFT_DIR)/ft_isalpha.c $(LIBFT_DIR)/ft_memchr.c\
