@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 18:27:42 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/02 18:21:12 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/04 12:21:49 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,20 @@ int	check_digit(char **str)
 int dup_check(char **str)
 {
 	int	i;
+	int	j;
 
 	i = 1;
+	j = 1;
 	while (str[i])
 	{
-		if (ft_strncmp(str[i], str[i], ft_strlen(str[i])) == 0)
+		while (str[j])
 		{
-			ft_printf("%d\n", ft_strncmp(str[i], str[i], ft_strlen(str[i])));
-			return (0);
+			if (ft_strncmp(str[i], str[i + j], 12))
+			{
+				ft_printf("%d\n", ft_strncmp(str[i], str[i], ft_strlen(str[i])));
+				return (0);
+			}
+			j++;
 		}
 		i++;
 	}

@@ -18,7 +18,7 @@ SRC_FLS = 	$(LIBFT_FLS)\
 			$(FT_PRINTF_FLS)\
 			$(GNL_FLS)
 
-LIBFT_FLS = $(LIBFT_DIR)/ft_atoi.c $(LIBFT_DIR)/ft_isalpha.c $(LIBFT_DIR)/ft_memchr.c\
+LIBFT_FLS = $(LIBFT_DIR)/ft_atoi_long.c $(LIBFT_DIR)/ft_isalpha.c $(LIBFT_DIR)/ft_memchr.c\
 			$(LIBFT_DIR)/ft_memset.c $(LIBFT_DIR)/ft_strlcpy.c $(LIBFT_DIR)/ft_strrchr.c\
 			$(LIBFT_DIR)/ft_bzero.c $(LIBFT_DIR)/ft_isascii.c $(LIBFT_DIR)/ft_memcmp.c\
 			$(LIBFT_DIR)/ft_strchr.c $(LIBFT_DIR)/ft_strlen.c $(LIBFT_DIR)/ft_tolower.c\
