@@ -1,5 +1,5 @@
 #---------------------------------Archive-------------------------------------#
-NAME = push_swap.a
+NAME = push_swap
 LIBFTNAME = libft.a
 
 #---------------------------------Flags---------------------------------------#
@@ -12,7 +12,7 @@ SRC_DIR = .
 LIBFT_DIR = ./libft
 
 #---------------------------------Source Files--------------------------------#
-SRC_FLS = $(SRC_DIR)/push_swap.c
+SRC_FLS = $(SRC_DIR)/push_swap.c $(SRC_DIR)/build_list_utils.c
 
 #---------------------------------Rules---------------------------------------#
 all: $(NAME)

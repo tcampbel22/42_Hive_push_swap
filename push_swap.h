@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:59:13 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/04 12:18:34 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/05 18:15:47 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,16 @@
 
 typedef struct s_stack
 {
-	int	*content;
+	int	content;
 	struct	s_stack *next;
 }	t_stack;
 
-int	ft_perror(int argc, char **argv);
-int	check_digit(char **str);
-int	dup_check(char **str);
-
+void	ft_perror_free(t_stack **stack);
+int		check_digit(char *str);
+int		dup_check(int num, t_stack *stack);
+void	fill_stack(t_stack **stack, char **argv, int split_check);
+void	ft_lstfree(t_stack **stack);
+t_stack	*ft_lastnode(t_stack *stack);
+void	stack_append(t_stack **stack, int num);
 
 #endif
