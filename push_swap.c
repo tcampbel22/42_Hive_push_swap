@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 18:27:42 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/05 18:17:04 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/08 16:12:33 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,20 +59,17 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
-	if (argc == 2)
+	if (argc == 2 && ft_strchr(argv[1], ' '))
 	{
 		if (!argv[1])
 			return (0);
-		argv = ft_split(argv[1], ' ');
 		split_check = 1;
+		argv = ft_split(argv[1], ' ');
 	}
+	if (split_check == 0 && argc == 2)
+		return (0);
 	fill_stack(&stack_a, argv, split_check);
-	/*while (stack_a)
-	{
-		i++;
-		stack_a = stack_a->next;
-		ft_printf("Inside node [%d] -> %d\n", i, stack_a->content);
-	}*/
+	sa(&stack_a);
 	ft_printf("Great Success!");
 	return(0);
 }

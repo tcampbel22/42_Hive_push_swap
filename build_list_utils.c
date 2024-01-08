@@ -6,11 +6,26 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:25:06 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/05 18:16:07 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/08 16:12:53 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	ft_stacksize(t_stack *stack)
+{
+	size_t	i;
+
+	i = 0;
+	if (!stack)
+		return (0);
+	while (stack)
+	{
+		i++;
+		stack = stack->next;
+	}
+	return (i);
+}
 
 void	ft_lstfree(t_stack **stack)
 {
@@ -37,7 +52,7 @@ t_stack *ft_lastnode(t_stack *stack)
 		stack = stack->next;
 	return (stack);
 }
-
+//modified lst_addback and lstnew
 void	stack_append(t_stack **stack, int num)
 {
 	t_stack *new_node;
@@ -57,7 +72,7 @@ void	stack_append(t_stack **stack, int num)
 		last_node = ft_lastnode(*stack);
 		last_node->next = new_node;
 	}
-	ft_printf("Inside node -> %d\n", new_node->content);
+	ft_printf("Node before -> %d\n", new_node->content);
 }
 
 void	fill_stack(t_stack **stack, char **argv, int split_check)
