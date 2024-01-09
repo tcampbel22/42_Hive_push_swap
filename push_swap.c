@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 18:27:42 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/08 16:12:33 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/09 16:48:35 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,13 @@ int	main(int argc, char **argv)
 	if (split_check == 0 && argc == 2)
 		return (0);
 	fill_stack(&stack_a, argv, split_check);
-	sa(&stack_a);
+//	sa(&stack_a);
+//	ss(&stack_a, &stack_b);
+//	pb(&stack_b, &stack_a);
+//	pa(&stack_a, &stack_b);
+	ra(&stack_a);
+//	rb(&stack_b);
+//	rra(&stack_a);
 	ft_printf("Great Success!");
 	return(0);
 }
