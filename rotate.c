@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 11:34:28 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/09 16:21:15 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/10 16:40:23 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,6 @@ void	rotate(t_stack **stack)
 	last->next = *stack;
 	*stack = (*stack)->next;
 	last->next->next = NULL;
-	while (*stack)
-	{
-		ft_printf("Node after swap -> %d\n", (*stack)->content);
-		*stack = (*stack)->next;
-	}
 }
 
 void	ra(t_stack **stack_a)

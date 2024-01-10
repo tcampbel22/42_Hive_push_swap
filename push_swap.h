@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:59:13 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/09 16:27:10 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/10 16:40:51 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,8 @@ void	reverse_rotate(t_stack **stack);
 void	rra(t_stack **stack_a);
 void	rrb(t_stack **stack_b);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
+int		stack_min(t_stack *stack);
+int		stack_max(t_stack *stack);
+void	sort_3(t_stack **stack_a);
+void	sort_5(t_stack **stack_a);
 #endif

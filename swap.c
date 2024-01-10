@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 10:24:00 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/09 16:12:50 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/10 15:01:33 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ void	swap(t_stack **stack)
 	*stack = (*stack)->next;
 	temp->next = (*stack)->next;
 	(*stack)->next = temp;
-	ft_printf("\n");
-	while (*stack)
-	{
-		ft_printf("Node after swap-> %d\n", (*stack)->content);
-		*stack = (*stack)->next;
-	}
+//	ft_printf("\n");
+//	while (*stack)
+//	{
+//		ft_printf("Node after swap-> %d\n", (*stack)->content);
+//		*stack = (*stack)->next;
+//	}
 }
 
 void	sa(t_stack **stack_a)
