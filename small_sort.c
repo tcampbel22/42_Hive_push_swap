@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 09:59:41 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/10 17:45:10 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/11 16:47:54 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,35 @@ void	sort_3(t_stack **a)
 		ra(a);
 	else if (max == (*a)->next->content)
 		rra(a);
-	if ((*a)->next->content < (*a)->content)
+	if ((*a)->content > (*a)->next->content)
 		sa(a);
 }
 
-void	sort_5(t_stack **a)
+int	check_sort(t_stack *a)
 {
-	int	max;
+	if (!a)
+		return (0);
+	while (a->next)
+	{
+		if (a->content > a->next->content)
+			return (0);
+		a = a->next;
+	}
+	return (1);
+}
+
+void	sort_5(t_stack **a, t_stack **b)
+{
+	int	min;
 	t_stack	*last;
 
-	max = stack_max(*a);
+	min = stack_min(*a);
 	last = ft_lastnode(*a);
-	while (max != last->content)
+	if (min == (*a)->content)
+		pb(b,a);
+	else
 	{
-		ra(a);
+		rra(a);
+		sort_5(a, b);
 	}
 }

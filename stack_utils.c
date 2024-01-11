@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 11:11:59 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/10 14:34:34 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/11 14:46:48 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,3 +39,4 @@ int	stack_min(t_stack *stack)
 	}
 	return (min);
 }
+

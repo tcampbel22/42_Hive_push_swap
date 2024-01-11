@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 18:27:42 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/10 17:39:44 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/11 16:48:55 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,36 @@ int	main(int argc, char **argv)
 		argv = ft_split(argv[1], ' ');
 	}
 	fill_stack(&stack_a, argv, split_check);
-	if ((argc == 2  && split_check == 1) || (argc == 4 && split_check == 0))
+	if (ft_stacksize(stack_a) < 4)
 	{
 		sort_3(&stack_a);
+		if (check_sort(stack_a))
+			ft_printf("Great Success!\n");
+		else
+			ft_printf("Sorting Failed BOOOOOOO!\n");
 		while (stack_a)
 		{
 			ft_printf("%d\n", stack_a->content);
 			stack_a = stack_a->next;
 		}
 	}
-	ft_printf("Great Success!");
+	if (ft_stacksize(stack_a) == 4 || ft_stacksize(stack_a) == 5)
+	{
+		sort_5(&stack_a, &stack_b);
+/*		if (check_sort(stack_a))
+			ft_printf("Great Success!\n");
+		else
+			ft_printf("Sorting Failed BOOOOOOO!\n");*/
+		while (stack_a)
+		{
+			while (stack_b)
+			{
+				ft_printf("B->%d\n", stack_b->content);
+				stack_b = stack_b->next;
+			}
+			ft_printf("A->%d\n", stack_a->content);
+			stack_a = stack_a->next;
+		}
+	}
 	return(0);
 }

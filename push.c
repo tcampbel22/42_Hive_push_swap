@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 11:31:44 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/09 15:26:55 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/11 15:54:43 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,6 @@ void	push(t_stack **dest, t_stack **src)
 	{
 		push_node->next = *dest;
 		*dest = push_node;
-	}
-	while ((*dest))
-	{
-		ft_printf("Stack B -> %d\n", (*dest)->content);
-		ft_printf("Stack A -> %d\n", (*src)->content);
-		*dest = (*dest)->next;
-		*src = (*src)->next;
 	}
 }
 
