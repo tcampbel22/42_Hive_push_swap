@@ -6,13 +6,13 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:25:06 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/10 11:10:31 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/12 15:45:25 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_stacksize(t_stack *stack)
+int	stacksize(t_stack *stack)
 {
 	size_t	i;
 
@@ -27,7 +27,7 @@ int	ft_stacksize(t_stack *stack)
 	return (i);
 }
 
-void	ft_lstfree(t_stack **stack)
+void	stackfree(t_stack **stack)
 {
 	t_stack *current;
 	t_stack *prev;
@@ -44,7 +44,7 @@ void	ft_lstfree(t_stack **stack)
 	*stack = NULL;
 }
 
-t_stack *ft_lastnode(t_stack *stack)
+t_stack *lastnode(t_stack *stack)
 {
 	if (!stack)
 		return (0);
@@ -69,7 +69,7 @@ void	stack_append(t_stack **stack, int num)
 		*stack = new_node;
 	else
 	{
-		last_node = ft_lastnode(*stack);
+		last_node = lastnode(*stack);
 		last_node->next = new_node;
 	}
 //	ft_printf("Node before -> %d\n", new_node->content);
@@ -87,12 +87,12 @@ void	fill_stack(t_stack **stack, char **argv, int split_check)
 	while (argv[i])
 	{
 		if (!check_digit(argv[i]))
-			ft_perror_free(stack);
+			perror_free(stack);
 		num = ft_atol(argv[i]);
 		if (num > 2147483647 || num < -2147483648)
-			ft_perror_free(stack);
+			perror_free(stack);
 		if (!dup_check(num, *stack))
-			ft_perror_free(stack);
+			perror_free(stack);
 		stack_append(stack, (int)num);
 		i++;
 		}

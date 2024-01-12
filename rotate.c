@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 11:34:28 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/11 12:33:45 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/12 16:44:20 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	rotate(t_stack **stack)
 
 	if (!stack || !*stack)
 		return ;
-	last = ft_lastnode(*stack);
+	last = lastnode(*stack);
 	last->next = *stack;
 	*stack = (*stack)->next;
 	last->next->next = NULL;
@@ -28,18 +28,18 @@ void	rotate(t_stack **stack)
 void	ra(t_stack **stack_a)
 {
 	rotate(stack_a);
-//	ft_printf("ra\n");
+	ft_printf("ra\n");
 }
 
 void	rb(t_stack **stack_b)
 {
 	rotate(stack_b);
-//	ft_printf("rb\n");
+	ft_printf("rb\n");
 }
 
 void	rr(t_stack **stack_a, t_stack **stack_b)
 {
 	rotate(stack_a);
 	rotate(stack_b);
-//	ft_printf("rr\n");
+	ft_printf("rr\n");
 }
