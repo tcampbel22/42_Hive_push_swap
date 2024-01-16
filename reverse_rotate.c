@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 09:36:18 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/12 16:45:42 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/16 14:25:56 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	reverse_rotate(t_stack	**stack)
 
 void	rra(t_stack **stack_a)
 {
+
 	reverse_rotate(stack_a);
 	ft_printf("rra\n");
 }

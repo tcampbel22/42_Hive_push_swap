@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 10:04:41 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/12 15:39:58 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/16 11:29:03 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	check_digit(char *str)
 	return (1);
 }
 
-int dup_check(int num, t_stack *stack)
+int	dup_check(int num, t_stack *stack)
 {
 	while (stack)
 	{
@@ -36,10 +36,23 @@ int dup_check(int num, t_stack *stack)
 	return (1);
 }
 
-void perror_free(t_stack **stack)
+void	perror_free(t_stack **stack)
 {
 	if (stack)
 		stackfree(stack);
 	ft_putendl_fd("Error", 2);
 	exit(0);
+}
+
+void	free_str(char **argv)
+{
+	size_t	i;
+
+	i = 0;
+	while (argv[i])
+	{
+		free(argv[i]);
+		i++;
+	}
+	free(argv);
 }

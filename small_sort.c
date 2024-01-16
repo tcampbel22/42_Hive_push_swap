@@ -6,39 +6,27 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 09:59:41 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/12 17:14:31 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/16 15:57:07 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_3(t_stack **a)
+void	sort_three(t_stack **a)
 {
-	int	max;
+	t_stack *max;
 
 	max = stack_max(*a);
 	if (!a)
 		exit(0);
-	if (max == (*a)->content)
+	if (max->content == (*a)->content)
 		ra(a);
-	else if (max == (*a)->next->content)
+	else if (max->content == (*a)->next->content)
 		rra(a);
 	if ((*a)->content > (*a)->next->content)
 		sa(a);
 }
 
-int	check_sort(t_stack *a)
-{
-	if (!a)
-		return (0);
-	while (a->next)
-	{
-		if (a->content > a->next->content)
-			return (0);
-		a = a->next;
-	}
-	return (1);
-}
 
 void	pre_sort(t_stack **a, t_stack **b, int size)
 {
@@ -54,6 +42,8 @@ void	pre_sort(t_stack **a, t_stack **b, int size)
 		i = 2;
 	while (size_b != i)
 	{
+		if (check_sort(*a))
+			return ;
 		size_b = stacksize(*b);
 		if (min == (*a)->content)
 			pb(b,a);
@@ -63,7 +53,7 @@ void	pre_sort(t_stack **a, t_stack **b, int size)
 			pre_sort(a, b, size);
 		}
 	}
-	sort_3(a);
+	sort_three(a);
 }
 
 

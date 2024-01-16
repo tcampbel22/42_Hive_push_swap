@@ -1,41 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*   big_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/10 11:11:59 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/16 14:56:10 by tcampbel         ###   ########.fr       */
+/*   Created: 2024/01/16 15:51:25 by tcampbel          #+#    #+#             */
+/*   Updated: 2024/01/16 16:48:44 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*stack_max(t_stack *stack)
+void	big_sort(t_stack **a, t_stack **b)
 {
-	t_stack *max;
+	int	len;
 
-	while (stack)
+	len = stacksize(*a);
+	if (len > 3 && !check_sort(*a))
 	{
-		if (stack->content > max->content)
-			max = stack;
-		stack = stack->next;
+		len--;
+		pb(b, a);
 	}
-	return (max);
-}
-
-int	stack_min(t_stack *stack)
-{
-	int	min;
-
-	min = (stack->content);
-	while (stack)
+	if (len > 3 && !check_sort(*a))
 	{
-		if (stack->content < min)
-			min = stack->content;
-		stack = stack->next;
+		len--;
+		pb(b, a);
 	}
-	return (min);
+	while (len > 3)
+	{
+		init_stack(*a, *b);
+	}
+	sort_three(a);
 }
 

@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:25:06 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/12 15:45:25 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/16 11:34:21 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	fill_stack(t_stack **stack, char **argv, int split_check)
 		if (!check_digit(argv[i]))
 			perror_free(stack);
 		num = ft_atol(argv[i]);
-		if (num > 2147483647 || num < -2147483648)
+		if (num > INT_MAX || num < INT_MIN)
 			perror_free(stack);
 		if (!dup_check(num, *stack))
 			perror_free(stack);
