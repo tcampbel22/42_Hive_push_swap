@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 10:24:00 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/16 10:53:07 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/17 15:16:00 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,14 @@ void	sb(t_stack **stack_b)
 }
 
 //swap_a and swap b at the same time
-void	ss(t_stack **stack_a, t_stack **stack_b)
+void	ss(t_stack **stack_a, t_stack **stack_b, t_stack *cheapest)
 {
-	swap(stack_a);
-	swap(stack_b);
+	while (!cheapest && !cheapest->target)
+	{
+		swap(stack_a);
+		swap(stack_b);
+	}
+	index_stack(*stack_a);
+	index_stack(*stack_b);
 	ft_printf("ss\n");
 }

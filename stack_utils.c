@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 11:11:59 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/16 14:56:10 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/17 17:15:02 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,34 @@
 t_stack	*stack_max(t_stack *stack)
 {
 	t_stack *max;
+	int		temp;
 
+	temp = INT_MIN;
 	while (stack)
 	{
-		if (stack->content > max->content)
+		if (stack->content > temp)
+		{
+			temp = stack->content;
 			max = stack;
+		}
 		stack = stack->next;
 	}
 	return (max);
 }
 
-int	stack_min(t_stack *stack)
+t_stack	*stack_min(t_stack *stack)
 {
-	int	min;
+	t_stack	*min;
+	int		temp;
 
-	min = (stack->content);
+	temp = INT_MAX;
 	while (stack)
 	{
-		if (stack->content < min)
-			min = stack->content;
+		if (stack->content < temp)
+		{
+			temp = stack->content;
+			min = stack;
+		}
 		stack = stack->next;
 	}
 	return (min);

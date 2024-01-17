@@ -15,7 +15,7 @@ LIBFT_DIR = ./libft
 SRC_FLS = 	$(SRC_DIR)/push_swap.c $(SRC_DIR)/build_list.c $(SRC_DIR)/push.c\
 			$(SRC_DIR)/swap.c $(SRC_DIR)/rotate.c $(SRC_DIR)/reverse_rotate.c\
 			$(SRC_DIR)/error_handling.c $(SRC_DIR)/stack_utils.c $(SRC_DIR)/small_sort.c\
-			$(SRC_DIR)/algo_utils.c $(SRC_DIR)/big_sort.c
+			$(SRC_DIR)/algo_utils.c $(SRC_DIR)/big_sort.c $(SRC_DIR)/shift_stacks.c
 
 #---------------------------------Rules---------------------------------------#
 all: $(NAME)

@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 11:34:28 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/12 16:44:20 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/17 16:47:57 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,14 @@ void	rb(t_stack **stack_b)
 	ft_printf("rb\n");
 }
 
-void	rr(t_stack **stack_a, t_stack **stack_b)
+void	rr(t_stack **stack_a, t_stack **stack_b, t_stack *cheapest)
 {
-	rotate(stack_a);
-	rotate(stack_b);
+	while (!cheapest && !cheapest->target)
+	{
+		rotate(stack_a);
+		rotate(stack_b);
+	}
+	index_stack(*stack_a);
+	index_stack(*stack_b);
 	ft_printf("rr\n");
 }

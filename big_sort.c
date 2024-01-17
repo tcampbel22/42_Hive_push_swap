@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:51:25 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/16 16:48:44 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/17 17:33:11 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,17 @@ void	big_sort(t_stack **a, t_stack **b)
 	}
 	while (len > 3)
 	{
-		init_stack(*a, *b);
+		init_stack_a(*a, *b);
+		shift_a(a, b);
+		len--;
 	}
 	sort_three(a);
+	while (*b)
+	{
+		init_stack_b(*b, *a);
+		shift_b(b, a);
+	}
+	index_stack(*a);
+	final_sort(a);
 }
 
