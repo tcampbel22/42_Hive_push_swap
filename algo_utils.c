@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 10:25:43 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/17 17:33:26 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/18 17:41:19 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,11 @@ void	set_cost(t_stack *a, t_stack *b)
 		a->push_cost = a->index;
 		if (!a->above_median)
 			a->push_cost = len_a - a->index;
-		if (a->above_median)
+		if (a->target->above_median)
 			a->push_cost += a->target->index;
 		else
 			a->push_cost += len_b - a->target->index;
+		ft_printf("Node ->[%d] Cost->[%d] Target->[%d]\n", a->content, a->push_cost, a->target->content);
 		a = a->next;
 	}
 }
@@ -106,7 +107,7 @@ void	target_b(t_stack *b, t_stack *a)
 		b->target = stack_min(a);
 		while (temp_a)
 		{
-			if (b->content < temp_a->content && temp_a->content >= closest)
+			if (b->content < temp_a->content && temp_a->content <= closest)
 			{
 				closest = temp_a->content;
 				target_node = temp_a;
@@ -151,9 +152,9 @@ void	final_sort(t_stack **a)
 	while (*a != min)
 	{
 		if (min->above_median)
-			ra(a);
+			ra(a, true);
 		else
-			rra(a);
+			rra(a, true);
 	}
 }
 

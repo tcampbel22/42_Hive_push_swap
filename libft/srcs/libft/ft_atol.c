@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:18:41 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/05 11:03:00 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/18 10:45:09 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,20 @@
 static long	convert_char(const char *str)
 {
 	long	num;
-	long	prev;
 
 	num = 0;
 	while (*str >= 48 && *str <= 57)
 	{
-		prev = num;
 		num = (num * 10) + (*str - 48);
 		str++;
-//		if (num < prev)
-//		{
-//			if (neg == 1)
-//				return (-1);
-//			return (0);
-//		}
 	}
 	return (num);
 }
 
 long	ft_atol(const char *str)
 {
-	int	neg;
-	long num;
+	int		neg;
+	long	num;
 
 	neg = 1;
 	num = 0;

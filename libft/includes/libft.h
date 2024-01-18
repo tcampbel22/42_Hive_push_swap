@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 13:19:05 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/05 10:27:57 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/18 11:24:43 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include "ft_printf.h"
-#include "get_next_line.h"
+# include "get_next_line.h"
 
 typedef struct s_list
 {

@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:25:06 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/16 11:34:21 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/18 16:21:55 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ t_stack *lastnode(t_stack *stack)
 		stack = stack->next;
 	return (stack);
 }
-//modified lst_addback and lstnew
+
 void	stack_append(t_stack **stack, int num)
 {
 	t_stack *new_node;
@@ -72,7 +72,6 @@ void	stack_append(t_stack **stack, int num)
 		last_node = lastnode(*stack);
 		last_node->next = new_node;
 	}
-//	ft_printf("Node before -> %d\n", new_node->content);
 }
 
 void	fill_stack(t_stack **stack, char **argv, int split_check)

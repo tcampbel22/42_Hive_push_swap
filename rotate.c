@@ -6,12 +6,11 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 11:34:28 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/17 16:47:57 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/18 16:42:23 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-//shift all elements of the stack up by one
 
 void	rotate(t_stack **stack)
 {
@@ -25,26 +24,26 @@ void	rotate(t_stack **stack)
 	last->next->next = NULL;
 }
 
-void	ra(t_stack **stack_a)
+void	ra(t_stack **stack_a, t_bool check)
 {
 	rotate(stack_a);
-	ft_printf("ra\n");
+	if (check)
+		ft_printf("ra\n");
 }
 
-void	rb(t_stack **stack_b)
+void	rb(t_stack **stack_b, t_bool check)
 {
 	rotate(stack_b);
-	ft_printf("rb\n");
+	if (check)
+		ft_printf("rb\n");
 }
 
-void	rr(t_stack **stack_a, t_stack **stack_b, t_stack *cheapest)
+void	rr(t_stack **stack_a, t_stack **stack_b, t_bool check)
 {
-	while (!cheapest && !cheapest->target)
-	{
-		rotate(stack_a);
-		rotate(stack_b);
-	}
+	rotate(stack_a);
+	rotate(stack_b);
 	index_stack(*stack_a);
 	index_stack(*stack_b);
-	ft_printf("rr\n");
+	if (!check)
+		ft_printf("rr\n");
 }

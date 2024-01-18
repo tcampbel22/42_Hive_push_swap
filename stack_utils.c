@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 11:11:59 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/17 17:15:02 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/18 12:19:41 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_stack	*stack_max(t_stack *stack)
 {
-	t_stack *max;
+	t_stack	*max;
 	int		temp;
 
 	temp = INT_MIN;
@@ -47,4 +47,3 @@ t_stack	*stack_min(t_stack *stack)
 	}
 	return (min);
 }
-

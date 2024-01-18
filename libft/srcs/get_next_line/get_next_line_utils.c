@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 13:49:02 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/11 10:45:16 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/18 10:45:34 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,3 @@ char	*ft_strjoin_gnl(char *str1, char *str2)
 	str1 = NULL;
 	return (str3);
 }
-

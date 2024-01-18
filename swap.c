@@ -6,16 +6,15 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 10:24:00 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/17 15:16:00 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/18 12:19:38 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//swap the first 2 elements in stack a
 void	swap(t_stack **stack)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	if (stacksize(*stack) < 2 || !*stack || !stack)
 		return ;
@@ -25,21 +24,21 @@ void	swap(t_stack **stack)
 	(*stack)->next = temp;
 }
 
-void	sa(t_stack **stack_a)
+void	sa(t_stack **stack_a, t_bool check)
 {
 	swap(stack_a);
-	ft_printf("sa\n");
+	if (check)
+		ft_printf("sa\n");
 }
 
-//swap the first 2 elements in stack b
-void	sb(t_stack **stack_b)
+void	sb(t_stack **stack_b, t_bool check)
 {
 	swap(stack_b);
-	ft_printf("sb\n");
+	if (check)
+		ft_printf("sb\n");
 }
 
-//swap_a and swap b at the same time
-void	ss(t_stack **stack_a, t_stack **stack_b, t_stack *cheapest)
+void	ss(t_stack **stack_a, t_stack **stack_b, t_stack *cheapest, t_bool check)
 {
 	while (!cheapest && !cheapest->target)
 	{
@@ -48,5 +47,6 @@ void	ss(t_stack **stack_a, t_stack **stack_b, t_stack *cheapest)
 	}
 	index_stack(*stack_a);
 	index_stack(*stack_b);
-	ft_printf("ss\n");
+	if (!check)
+		ft_printf("ss\n");
 }
