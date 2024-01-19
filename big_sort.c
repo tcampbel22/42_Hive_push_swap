@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:51:25 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/18 16:27:45 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/19 16:07:11 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	big_sort(t_stack **a, t_stack **b)
 		pb(b, a);
 	if (len-- > 3 && !check_sort(*a))
 		pb(b, a);
-	while (len-- > 3)
+	while (len-- > 3 && !check_sort(*a))
 	{
 		init_stack_a(*a, *b);
 		shift_a(a, b);

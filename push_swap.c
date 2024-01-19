@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 18:27:42 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/18 11:21:42 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/19 15:46:33 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,8 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
-	if (argc == 2 && ft_strchr(argv[1], ' '))
+	else if (argc == 2 && ft_strchr(argv[1], ' '))
 	{
-		if (!argv[1])
-			ft_printf("Error");
 		split_check = 1;
 		argv = ft_split(argv[1], ' ');
 	}
@@ -37,15 +35,16 @@ int	main(int argc, char **argv)
 		perror_free(&stack_a);
 		free_str(argv);
 	}
-	if (check_sort(stack_a))
-		return (0);
-	else
+	if (!check_sort(stack_a))
 	{
-		if (stacksize(stack_a) > 1 && stacksize(stack_a) < 4)
+		if (stacksize(stack_a) == 2 || stacksize(stack_a) == 3)
 			sort_three(&stack_a);
 		else
 			big_sort(&stack_a, &stack_b);
 	}
+//	if (check_sort(stack_a))
+//		ft_printf("Sorted");
 	stackfree(&stack_a);
+	stackfree(&stack_b);
 	return(0);
 }

@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:59:13 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/18 16:43:36 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/19 15:01:07 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,20 +45,20 @@ t_stack	*lastnode(t_stack *stack);
 void	stack_append(t_stack **stack, int num);
 int		stacksize(t_stack *stack);
 void	swap(t_stack **stack);
-void	sa(t_stack **stack_a, t_bool check);
-void	sb(t_stack **stack_b, t_bool check);
-void	ss(t_stack **stack_a, t_stack **stack_b, t_stack *cheapest, t_bool check);
+void	sa(t_stack **stack_a);
+void	sb(t_stack **stack_b);
+void	ss(t_stack **stack_a, t_stack **stack_b, t_stack *cheapest);
 void	push(t_stack **stack_a, t_stack **stack_b);
 void	pa(t_stack **stack_a, t_stack **stack_b);
 void	pb(t_stack **stack_a, t_stack **stack_b);
 void	rotate(t_stack **stack);
-void	ra(t_stack **stack_a, t_bool check);
-void	rb(t_stack **stack_b, t_bool check);
-void	rr(t_stack **stack_a, t_stack **stack_b, t_bool check);
+void	ra(t_stack **stack_a);
+void	rb(t_stack **stack_b);
+void	rr(t_stack **stack_a, t_stack **stack_b, t_stack *cheapest);
 void	reverse_rotate(t_stack **stack);
-void	rra(t_stack **stack_a, t_bool check);
-void	rrb(t_stack **stack_b, t_bool check);
-void	rrr(t_stack **stack_a, t_stack **stack_b, t_bool check);
+void	rra(t_stack **stack_a);
+void	rrb(t_stack **stack_b);
+void	rrr(t_stack **stack_a, t_stack **stack_b, t_stack *cheapest);
 t_stack	*stack_min(t_stack *stack);
 t_stack	*stack_max(t_stack *stack);
 void	sort_three(t_stack **stack_a);

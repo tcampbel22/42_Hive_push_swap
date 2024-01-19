@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 10:24:00 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/18 12:19:38 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/19 15:27:42 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,23 @@ void	swap(t_stack **stack)
 	(*stack)->next = temp;
 }
 
-void	sa(t_stack **stack_a, t_bool check)
+void	sa(t_stack **stack_a)
 {
+	if (!*stack_a)
+		return ;
 	swap(stack_a);
-	if (check)
-		ft_printf("sa\n");
+	ft_printf("sa\n");
 }
 
-void	sb(t_stack **stack_b, t_bool check)
+void	sb(t_stack **stack_b)
 {
+	if (!*stack_b)
+		return ;
 	swap(stack_b);
-	if (check)
-		ft_printf("sb\n");
+	ft_printf("sb\n");
 }
 
-void	ss(t_stack **stack_a, t_stack **stack_b, t_stack *cheapest, t_bool check)
+void	ss(t_stack **stack_a, t_stack **stack_b, t_stack *cheapest)
 {
 	while (!cheapest && !cheapest->target)
 	{
@@ -47,6 +49,5 @@ void	ss(t_stack **stack_a, t_stack **stack_b, t_stack *cheapest, t_bool check)
 	}
 	index_stack(*stack_a);
 	index_stack(*stack_b);
-	if (!check)
-		ft_printf("ss\n");
+	ft_printf("ss\n");
 }

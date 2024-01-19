@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 10:04:41 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/16 11:29:03 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/19 13:30:56 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,13 @@ void	free_str(char **argv)
 	size_t	i;
 
 	i = 0;
-	while (argv[i])
+	if (argv)
 	{
-		free(argv[i]);
-		i++;
+		while (argv[i])
+		{
+			free(argv[i]);
+			i++;
+		}
+		free(argv);
 	}
-	free(argv);
 }

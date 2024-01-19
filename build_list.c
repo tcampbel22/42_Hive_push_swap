@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:25:06 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/18 16:21:55 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/19 13:57:33 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,10 @@ void	stack_append(t_stack **stack, int num)
 		return ;
 	new_node = malloc(sizeof(t_stack));
 	if (!new_node)
+	{
+		stackfree(stack);
 		return ;
+	}
 	new_node->next = NULL;
 	new_node->content = num;
 	if (!*stack)

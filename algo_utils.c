@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 10:25:43 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/18 17:41:19 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/19 16:05:58 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	set_cost(t_stack *a, t_stack *b)
 			a->push_cost += a->target->index;
 		else
 			a->push_cost += len_b - a->target->index;
-		ft_printf("Node ->[%d] Cost->[%d] Target->[%d]\n", a->content, a->push_cost, a->target->content);
 		a = a->next;
 	}
 }
@@ -107,7 +106,7 @@ void	target_b(t_stack *b, t_stack *a)
 		b->target = stack_min(a);
 		while (temp_a)
 		{
-			if (b->content < temp_a->content && temp_a->content <= closest)
+			if (temp_a->content > b->content && temp_a->content <= closest)
 			{
 				closest = temp_a->content;
 				target_node = temp_a;
@@ -132,7 +131,7 @@ void	target_a(t_stack *a, t_stack *b)
 		a->target = stack_max(b);
 		while (temp_b)
 		{
-			if (a->content > temp_b->content && temp_b->content <= closest)
+			if (temp_b->content < a->content && temp_b->content >= closest)
 			{
 				closest = temp_b->content;
 				target_node = temp_b;
@@ -152,9 +151,9 @@ void	final_sort(t_stack **a)
 	while (*a != min)
 	{
 		if (min->above_median)
-			ra(a, true);
+			ra(a);
 		else
-			rra(a, true);
+			rra(a);
 	}
 }
 
