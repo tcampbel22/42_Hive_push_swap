@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:25:06 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/23 13:52:12 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/23 14:28:37 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int	stacksize(t_stack *stack)
 
 void	stackfree(t_stack **stack)
 {
-	t_stack *current;
-	t_stack *prev;
+	t_stack	*current;
+	t_stack	*prev;
 
 	current = *stack;
 	if (!stack)
@@ -44,7 +44,7 @@ void	stackfree(t_stack **stack)
 	*stack = NULL;
 }
 
-t_stack *lastnode(t_stack *stack)
+t_stack	*lastnode(t_stack *stack)
 {
 	if (!stack)
 		return (0);
@@ -55,8 +55,8 @@ t_stack *lastnode(t_stack *stack)
 
 void	stack_append(t_stack **stack, int num)
 {
-	t_stack *new_node;
-	t_stack *last_node;
+	t_stack	*new_node;
+	t_stack	*last_node;
 
 	if (!stack)
 		return ;
@@ -97,5 +97,5 @@ void	fill_stack(t_stack **stack, char **argv, int split_check)
 			perror_free(stack);
 		stack_append(stack, (int)num);
 		i++;
-		}
+	}
 }

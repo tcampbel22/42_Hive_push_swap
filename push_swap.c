@@ -6,14 +6,14 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 18:27:42 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/23 13:51:01 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/23 14:50:04 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 int	main(int argc, char **argv)
-{ 
+{
 	t_stack	*a;
 	t_stack	*b;
 	int		split_check;
@@ -21,7 +21,6 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	split_check = 0;
-
 	if (argc < 2)
 		return (0);
 	else if (argc == 2 && ft_strchr(argv[1], ' '))
@@ -35,14 +34,8 @@ int	main(int argc, char **argv)
 		perror_free(&a);
 		free_str(argv);
 	}
-	if (!check_sort(a))
-	{
-		if (stacksize(a) == 2 || stacksize(a) == 3)
-			sort_three(&a);
-		else
-			big_sort(&a, &b);
-	}
+	pre_sort(&a, &b);
 	stackfree(&a);
 	stackfree(&b);
-	return(0);
+	return (0);
 }

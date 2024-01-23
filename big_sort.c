@@ -6,11 +6,22 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:51:25 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/23 13:57:18 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/23 14:33:14 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	pre_sort(t_stack **a, t_stack **b)
+{
+	if (!check_sort(*a))
+	{
+		if (stacksize(*a) == 2 || stacksize(*a) == 3)
+			sort_three(a);
+		else
+			big_sort(a, b);
+	}
+}
 
 void	big_sort(t_stack **a, t_stack **b)
 {

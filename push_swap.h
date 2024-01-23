@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:59:13 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/23 13:53:53 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/23 14:33:01 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,5 @@ void	final_sort(t_stack **a);
 void	swap_both(t_stack **a, t_stack **b, t_stack *cheapest);
 void	reverse_both(t_stack **a, t_stack **b, t_stack *cheapest);
 void	rotate_both(t_stack **a, t_stack **b, t_stack *cheapest);
+void	pre_sort(t_stack **a, t_stack **b);
 #endif
