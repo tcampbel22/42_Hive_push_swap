@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 10:24:00 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/19 15:27:42 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/23 13:53:12 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,30 +24,32 @@ void	swap(t_stack **stack)
 	(*stack)->next = temp;
 }
 
-void	sa(t_stack **stack_a)
+void	sa(t_stack **a, t_bool check)
 {
-	if (!*stack_a)
-		return ;
-	swap(stack_a);
-	ft_printf("sa\n");
+	swap(a);
+	if (!check)
+		ft_printf("sa\n");
 }
 
-void	sb(t_stack **stack_b)
+void	sb(t_stack **b, t_bool check)
 {
-	if (!*stack_b)
-		return ;
-	swap(stack_b);
-	ft_printf("sb\n");
+	swap(b);
+	if (!check)
+		ft_printf("sb\n");
 }
 
-void	ss(t_stack **stack_a, t_stack **stack_b, t_stack *cheapest)
+void	ss(t_stack **a, t_stack **b, t_bool check)
 {
-	while (!cheapest && !cheapest->target)
-	{
-		swap(stack_a);
-		swap(stack_b);
-	}
-	index_stack(*stack_a);
-	index_stack(*stack_b);
-	ft_printf("ss\n");
+	swap(a);
+	swap(b);
+	if (!check)
+		ft_printf("ss\n");
+}
+
+void	swap_both(t_stack **a, t_stack **b, t_stack *cheapest)
+{
+	while (*a != cheapest && *b != cheapest->target)
+		ss(a, b, false);
+	index_stack(*a);
+	index_stack(*b);
 }

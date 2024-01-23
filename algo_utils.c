@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 10:25:43 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/19 16:05:58 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/23 13:54:50 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	index_stack(t_stack	*stack)
 t_bool	check_sort(t_stack *a)
 {
 	if (!a)
-		exit(0);
+		exit(false);
 	while (a->next)
 	{
 		if (a->content > a->next->content)
@@ -151,9 +151,9 @@ void	final_sort(t_stack **a)
 	while (*a != min)
 	{
 		if (min->above_median)
-			ra(a);
+			ra(a, false);
 		else
-			rra(a);
+			rra(a, false);
 	}
 }
 

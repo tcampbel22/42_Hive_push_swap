@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 14:17:25 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/19 16:05:10 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/23 13:57:45 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@ void	push_check(t_stack **stack, t_stack *top, char stack_flag)
 		if (stack_flag == 'a')
 		{
 			if (top->above_median)
-				ra(stack);
+				ra(stack, false);
 			else
-				rra(stack);
+				rra(stack, false);
 		}
 		if (stack_flag == 'b')
 		{
 			if (top->above_median)
-				rb(stack);
+				rb(stack, false);
 			else
-				rrb(stack);
+				rrb(stack, false);
 		}
 	}
 }
@@ -39,16 +39,16 @@ void	shift_a(t_stack **a, t_stack **b)
 
 	cheapest = find_cheapest(*a);
 	if (cheapest->above_median && cheapest->target->above_median)
-		rr(a, b, cheapest);
+		rotate_both(a, b, cheapest);
 	else if (!cheapest->above_median && !cheapest->target->above_median)
-		rrr(a, b, cheapest);
+		reverse_both(a, b, cheapest);
 	push_check(a, cheapest, 'a');
 	push_check(b, cheapest->target, 'b');
-	pb(b, a);
+	pb(b, a, false);
 }
 
 void	shift_b(t_stack **b, t_stack **a)
 {
 	push_check(a, (*b)->target, 'a');
-	pa(a, b);
+	pa(a, b, false);
 }

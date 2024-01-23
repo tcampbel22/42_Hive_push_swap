@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 09:36:18 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/19 15:27:40 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/23 13:39:38 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,30 +33,32 @@ void	reverse_rotate(t_stack	**stack)
 	}
 }
 
-void	rra(t_stack **stack_a)
+void	rra(t_stack **a, t_bool check)
 {
-	if (!*stack_a)
-		return ;
-	reverse_rotate(stack_a);
-	ft_printf("rra\n");
+	reverse_rotate(a);
+	if (!check)
+		ft_printf("rra\n");
 }
 
-void	rrb(t_stack **stack_b)
+void	rrb(t_stack **b, t_bool check)
 {
-	if (!*stack_b)
-		return ;
-	reverse_rotate(stack_b);
-	ft_printf("rrb\n");
+	reverse_rotate(b);
+	if (!check)
+		ft_printf("rrb\n");
 }
 
-void	rrr(t_stack **stack_a, t_stack **stack_b, t_stack *cheapest)
+void	rrr(t_stack **a, t_stack **b, t_bool check)
 {
-	while (*stack_a != cheapest && *stack_b != cheapest->target)
-	{
-		reverse_rotate(stack_a);
-		reverse_rotate(stack_b);
-	}
-	index_stack(*stack_a);
-	index_stack(*stack_b);
-	ft_printf("rrr\n");
+	reverse_rotate(a);
+	reverse_rotate(b);
+	if (!check)
+		ft_printf("rrr\n");
+}
+
+void	reverse_both(t_stack **a, t_stack **b, t_stack *cheapest)
+{
+	while (*a != cheapest && *b != cheapest->target)
+		rrr(a, b, false);
+	index_stack(*a);
+	index_stack(*b);
 }
