@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:25:06 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/23 14:28:37 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/24 16:07:02 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,10 @@ void	fill_stack(t_stack **stack, char **argv, int split_check)
 	while (argv[i])
 	{
 		if (!check_digit(argv[i]))
+		{
 			perror_free(stack);
+			free_str(argv);
+		}
 		num = ft_atol(argv[i]);
 		if (num > INT_MAX || num < INT_MIN)
 			perror_free(stack);
@@ -98,4 +101,6 @@ void	fill_stack(t_stack **stack, char **argv, int split_check)
 		stack_append(stack, (int)num);
 		i++;
 	}
+	if (split_check == 1)
+		free_str(argv);
 }

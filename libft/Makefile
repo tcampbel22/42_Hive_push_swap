@@ -2,9 +2,9 @@
 NAME = libft.a
 
 #---------------------------------Flags---------------------------------------#
-CC = cc
+CC = @cc
 CFLAGS = -Wall -Wextra -Werror -I includes
-RM = rm -rf
+RM = @rm -rf
 
 #---------------------------------Directories---------------------------------#
 SRC_DIR = srcs
@@ -40,17 +40,24 @@ FT_PRINTF_FLS = $(FT_PRINTF_DIR)/ft_printf.c $(FT_PRINTF_DIR)/str_handler.c\
 
 GNL_FLS = 	$(GNL_DIR)/get_next_line.c $(GNL_DIR)/get_next_line_utils.c\
 
+#---------------------------------Colours-------------------------------------#
+GREEN= \033[1;32m
+CYAN= \033[1;36m
+PURPLE= \033[1;35m
+END= \033[0m
+
 #---------------------------------Rules---------------------------------------#
 all: $(NAME)
 
 OBJS = $(SRC_FLS:.c=.o)
 
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	@ar rcs $(NAME) $(OBJS)
+	@echo "${GREEN}Libft Compiled Successfully${END}"
 
 clean:
 	$(RM) $(OBJS)
-
+	@echo "${GREEN}Libft Cleaned${END}"
 fclean:
 	$(RM) $(NAME)
 

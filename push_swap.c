@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 18:27:42 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/23 14:50:04 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/24 16:43:40 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,12 @@ int	main(int argc, char **argv)
 	split_check = 0;
 	if (argc < 2)
 		return (0);
-	else if (argc == 2 && ft_strchr(argv[1], ' '))
+	if (argc == 2)
 	{
 		split_check = 1;
 		argv = ft_split(argv[1], ' ');
+		if (!argv[0])
+			perror_free(&a);
 	}
 	fill_stack(&a, argv, split_check);
 	if (!&fill_stack)
@@ -36,6 +38,5 @@ int	main(int argc, char **argv)
 	}
 	pre_sort(&a, &b);
 	stackfree(&a);
-	stackfree(&b);
 	return (0);
 }

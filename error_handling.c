@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 10:04:41 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/01/19 13:30:56 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/01/24 16:12:46 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	check_digit(char *str)
 {
+	if (!str || !str[0])
+		return (0);
 	if (str[1] != '\0' && (str[0] == '-' || str[0] == '+'))
 		str++;
 	while (*str)

@@ -3,9 +3,9 @@ NAME = push_swap
 LIBFTNAME = libft.a
 
 #---------------------------------Flags---------------------------------------#
-CC = cc
-CFLAGS = -g -Wall -Wextra -Werror
-RM = rm -f
+CC = @cc
+CFLAGS = -Wall -Wextra -Werror
+RM = @rm -f
 
 #---------------------------------Directories---------------------------------#
 SRC_DIR = .
@@ -30,22 +30,20 @@ all: $(NAME)
 OBJS = $(SRC_FLS:.c=.o)
 
 $(NAME): $(OBJS)
-	@echo "${GREEN}Compiling"
+	@echo "${PURPLE}Compiling Libft${END}"
+	@echo "${PURPLE}Compiling Push_Swap${END}"
 	@make -C $(LIBFT_DIR)
-	@echo "Great Success!${END}"
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT_DIR)/$(LIBFTNAME) -o $@ 
-
+	@echo "${GREEN}Push_Swap Compiled Successfully${END}"
 clean:
 	$(RM) $(OBJS)
 	@make clean -C libft/
+	@echo "${GREEN}Push_Swap Cleaned${END}"
 
 fclean: clean
 	$(RM) $(NAME)
-	@echo "${PURPLE}Fclean success!${END}"
-	@make fclean -C libft
+	@rm -f libft/${LIBFTNAME}
 
 re: fclean all
-
-$(s).SILENT:
 
 .PHONY: all clean fclean re
